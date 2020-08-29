@@ -24,7 +24,7 @@ def load_and_split():
 def create_model(X, y, cv=False):
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.33, random_state=42)
-    lr = LogisticRegression(max_iter=1000, multi_class='multinomial',
+    lr = LogisticRegression(max_iter=5000, multi_class='multinomial',
                             solver='lbfgs', penalty='l2', C=0.5, class_weight='balanced')
     if cv:
         scores = cross_validate(lr, X, y, cv=10,
@@ -84,7 +84,7 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
 def main():
     title = "Learning Curves (Logistic)"
     X, y = load_and_split()
-    lr = create_model(X, y)
+    lr = create_model(X, y, cv=True)
     # Cross validation with 100 iterations to get smoother mean test and train
     # score curves, each time with 20% data randomly selected as a validation set.
     cv = ShuffleSplit(n_splits=10, test_size=0.33, random_state=0)

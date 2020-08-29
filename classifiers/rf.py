@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV, cross_val_predict, cross_validate, TimeSeriesSplit, train_test_split, learning_curve
 import datetime
 import warnings
@@ -164,8 +163,6 @@ def main():
 
     rfc = create_model(covid, train, test, rf_params, cv=True)
     #grid_search(RandomForestClassifier(), rf_params, X_train, y_train)
-
-    plt.show()
 
 
 if __name__ == "__main__":

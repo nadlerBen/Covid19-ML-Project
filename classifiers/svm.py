@@ -143,20 +143,7 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
 
 def main():
     covid, train, test = load_split_data('2020-01-01', '2020-08-01')
-
-    rf_params = {'n_estimators': [50, 100, 200, 300, 400, 500],
-                 'max_depth': [2, 5, 10, 20],
-                 'criterion': ('gini', 'entropy'),
-                 'min_samples_split': [2, 3, 4, 5],
-                 'min_samples_leaf': [1, 2, 3, 4, 5],
-                 'max_features': ('auto', 'sqrt', 'log2', 'None'),
-                 'max_leaf_nodes': [1, 2, 3, 4, 5],
-                 'class_weight': ('balanced', 'None')}
-
     svc = create_model(covid, train, test, rf_params, cv=True)
-    #grid_search(RandomForestClassifier(), rf_params, X_train, y_train)
-
-    plt.show()
 
 
 if __name__ == "__main__":

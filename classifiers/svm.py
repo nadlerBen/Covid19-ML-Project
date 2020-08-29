@@ -34,7 +34,7 @@ def train_test(train, test):
     return X_train, X_test, y_train, y_test
 
 
-def create_model(data, train, test, params, cv=False):
+def create_model(data, train, test, cv=False):
     X = data[data.columns[:-1]].to_numpy()
     y = data[data.columns[-1]].to_numpy()
 
@@ -143,7 +143,8 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
 
 def main():
     covid, train, test = load_split_data('2020-01-01', '2020-08-01')
-    svc = create_model(covid, train, test, rf_params, cv=True)
+    svc = create_model(covid, train, test, cv=True)
+    plt.show()
 
 
 if __name__ == "__main__":

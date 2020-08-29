@@ -45,6 +45,7 @@ def create_model(data, train, test, params, cv=False):
         title = "Learning Curves (Random Forest)"
         plot_learning_curve(rfc, title, X, y, ylim=(0.0, 1.00),
                             cv=TimeSeriesSplit(), n_jobs=4)
+        plt.show()
     else:
         X_train, X_test, y_train, y_test = train_test(train, test)
         rfc.fit(X_train, y_train)

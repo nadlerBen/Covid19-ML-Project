@@ -18,15 +18,9 @@ def argmax(vector):
     return idx
 
 
-def log_sum_exp(vector):
-    max_score = vector[0, argmax(vector)]
-    max_score_broadcast = max_score.view(1, -1).expand(1, vector.size()[1])
-    return max_score + torch.log(torch.sum(torch.exp(vector - max_score_broadcast)))
-
-
-class biLSTM_CRF(nn.Module):
+class biLSTM(nn.Module):
     def __init__(self, class_to_ix, features_dim, hidden_dim):
-        super(biLSTM_CRF, self).__init__()
+        super(biLSTM, self).__init__()
         self.features_dim = features_dim
         self.hidden_dim = hidden_dim
         self.class_to_ix = class_to_ix
@@ -35,16 +29,14 @@ class biLSTM_CRF(nn.Module):
         self.lstm = nn.LSTM(features_dim, hidden_dim // 2,
                             num_layers=1, bidirectional=True)
         # maps the output of the lstm into the classes space
-        self.relu = nn.ReLU()
         self.hidden_to_class = nn.Linear(hidden_dim, self.target_size)
 
     def init_hidden(self):
         return (torch.randn(2, 1, self.hidden_dim // 2),
                 torch.randn(2, 1, self.hidden_dim // 2))
 
-    def forward(self, sequence):  # dont confuse this with _forward_alg above.
+    def forward(self, sequence):
         self.hidden = self.init_hidden()
-        # sequence = torch.FloatTensor(sequence).view(len(sequence), 1, -1)  # change from FloatTensor to LongTensor
         sequence = sequence.view(len(sequence), 1, -1)
         lstm_out, self.hidden = self.lstm(sequence, self.hidden)
         lstm_out = lstm_out.view(len(sequence), self.hidden_dim)
@@ -77,7 +69,7 @@ def main():
     #####################################################################
     # initialize model and optimizer:
     #####################################################################
-    model = biLSTM_CRF(classes_to_ix, FEATURES_DIM, HIDDEN_DIM)
+    model = biLSTM(classes_to_ix, FEATURES_DIM, HIDDEN_DIM)
     criterion = nn.NLLLoss()
     #optimizer = optim.SGD(model.parameters(), lr=0.001)
     optimizer = optim.Adam(model.parameters(), lr=0.0004571863263754201,
@@ -88,7 +80,7 @@ def main():
     model.train()
     loss_values = []
     for epoch in range(
-            200):
+            10):
         count = 0
         total_epoch_loss = 0
         print('Number of epoch: {}'.format(epoch))

@@ -86,8 +86,6 @@ def main():
         print('Number of epoch: {}'.format(epoch))
         for sequence, classes in training_data['Israel']:
             model.zero_grad()
-            """sequence = torch.tensor(sequence, dtype=torch.float).view(7, 1, 6)
-            classes = torch.tensor(classes, dtype=torch.long).view(7, 1)"""
             sequence = torch.tensor(sequence, dtype=torch.float)
             classes = torch.tensor(classes, dtype=torch.long)
             class_scores = model(sequence)

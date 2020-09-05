@@ -98,8 +98,7 @@ def main():
         print(f'Average loss for epoch {epoch}: {total_epoch_loss/count}')
         loss_values.append(total_epoch_loss/count)
         # for name, p in model.named_parameters():
-        #    if name == 'transitions':
-        #        print(name, p.data)
+        #     print(name, p.data)
     plt.plot(loss_values)
     plt.show()
     #####################################################################

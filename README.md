@@ -1,2 +1,11 @@
 # Covid19-ML-Project
 Machine Learning final project for the course Learning and Optimization 097209 @ Technion
+Predicting a classification based on number of cases per million each day 
+```
+# classes:
+# 0 - no new cases this day
+# 1 - 1-10 new cases per million today
+# 2 - 11-100 new cases per million today
+# 3 - 101-250 new cases per million this day
+# 4 - more than 250 per million new cases this day
+```

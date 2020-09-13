@@ -1,6 +1,7 @@
 # Covid19-ML-Project
 Machine Learning final project for the course Learning and Optimization 097209 @ Technion \
 Predicting a classification based on number of cases per million each day 
+### Classes used
 ```
 # classes:
 # 0 - no new cases on this day

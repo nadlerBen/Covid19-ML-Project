@@ -9,3 +9,5 @@ Predicting a classification based on number of cases per million each day
 # 3 - 101-250 new cases per million a day
 # 4 - more than 250 per million new cases a day
 ```
+### Data
+For this project we used joined data from https://ourworldindata.org/

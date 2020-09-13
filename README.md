@@ -10,4 +10,4 @@ Predicting a classification based on number of cases per million each day
 # 4 - more than 250 per million new cases a day
 ```
 ### Data
-For this project we used joined data from https://ourworldindata.org/
+For this project we used joined data from https://ourworldindata.org/coronavirus

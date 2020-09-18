@@ -19,3 +19,6 @@ We implemented BiLSTM and BiLSTM-CRF with PyTorch, we used both a manual impleme
 
 ### SEIR Model
 This part holds the code for the creative part, for this part we used NetworkX libraby to generate graphs and implemented our simulations.
+
+### Utilities
+This part holds scripts that were implemented by us to preprocess the raw data we collected and convert it to the formats used by our models, we used mainly Pandas library for this part.

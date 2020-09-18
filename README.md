@@ -11,3 +11,8 @@ Predicting a classification based on number of cases per million each day
 ```
 ### Data
 For this project we used joined data from https://ourworldindata.org/coronavirus
+
+### Classifiers
+This part holds the models we used to evaluate our performace.
+We implemented Logistic Regression, SVM and Random Forest with sklearn.
+We implemented BiLSTM and BiLSTM-CRF with PyTorch, we used both a manual implemented BiLSTM-CRF and also a version with pytorch-crf library.

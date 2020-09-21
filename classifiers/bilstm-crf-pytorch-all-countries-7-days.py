@@ -177,7 +177,7 @@ def main():
     total_recall_train_values = []
     total_recall_test_values = []
     epoch_loss = []
-    best_test_acc = 0.61
+    best_test_acc = 0
     for epoch in range(
             300):
         count = 0

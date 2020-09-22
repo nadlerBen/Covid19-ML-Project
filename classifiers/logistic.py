@@ -89,7 +89,7 @@ def main():
     lr = create_model(X, y, cv=True)
     # Cross validation with 100 iterations to get smoother mean test and train
     # score curves, each time with 20% data randomly selected as a validation set.
-    cv = ShuffleSplit(n_splits=10, test_size=0.33, random_state=0)
+    cv = ShuffleSplit(n_splits=10, test_size=0.2, random_state=0)
 
     plot_learning_curve(lr, title, X, y, ylim=(0.0, 1.00),
                         cv=10, n_jobs=4)

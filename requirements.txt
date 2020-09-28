@@ -1,0 +1,8 @@
+torch
+numpy
+pandas
+matplotlib
+pytorch-crf
+scikit-learn
+scipy
+networkx
